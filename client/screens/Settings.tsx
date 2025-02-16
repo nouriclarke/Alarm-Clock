@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
-import { View, Text, Switch, StyleSheet, Button } from 'react-native';
+import { View, Text, Switch, StyleSheet, Button, ScrollView, SafeAreaView } from 'react-native';
 import { styles, textStyles } from '../styles';
 import { useDarkMode } from '../contexts/DarkModeContext'; // Make sure to import useDarkMode
 import SettingsToggle from '../components/SettingsToggle';
 import * as Notifications from 'expo-notifications';
+import { settingStyles } from '../styles/index';
+
 
 function Setting() {
   useEffect(() => {
@@ -56,21 +58,58 @@ function Setting() {
 
   const { isDarkMode, toggleSwitch } = useDarkMode(); // Use the useDarkMode hook
 
-  const backgroundColor = isDarkMode ? 'darkgrey' : 'white';
+  const backgroundColor = isDarkMode ? 'black' : '#f4f4f4';
   const textColor = isDarkMode ? 'white' : 'black';
 
+
   return (
-    <View style={[styles.container, { backgroundColor }]}>
-      <Text style={[textStyles.titleText, { color: textColor }]}>Settings</Text>
-
-      <SettingsToggle
-        name="Dark Mode"
-        value={isDarkMode}
-        onValueChange={toggleSwitch}
-      ></SettingsToggle>
-
-      <Button title="Schedule Notification" onPress={scheduleNotification} />
-    </View>
+      <ScrollView style={[settingStyles.container, { backgroundColor}]}>
+        <Text style={[textStyles.titleText, { color: textColor }]}>Settings</Text>
+        <View style={settingStyles.sections}>
+          <SettingsToggle
+            name="Dark Mode"
+            value={isDarkMode}
+            mode={isDarkMode}
+            onValueChange={toggleSwitch}
+            icon='moon'
+            iconColor='white'
+            iconBackgroundColor='orange'
+            last={false}
+          ></SettingsToggle>
+          <SettingsToggle
+            name="Discord Option"
+            value={false}
+            mode={isDarkMode}
+            onValueChange={() => {}}
+            icon='message-circle'
+            iconColor='white'
+            iconBackgroundColor='blue'
+            last={false}
+          ></SettingsToggle>
+              <SettingsToggle
+            name="Test Option"
+            value={false}
+            mode={isDarkMode}
+            onValueChange={() => {}}
+            icon='activity'
+            iconColor='white'
+            iconBackgroundColor='red'
+            last={true}
+          ></SettingsToggle>
+        </View>
+        {/* <View style={settingStyles.sections}>
+        <SettingsToggle
+            name="Discord Option"
+            value={false}
+            mode={isDarkMode}
+            onValueChange={() => {}}
+            icon='message-circle'
+            iconColor='white'
+            iconBackgroundColor='blue'
+          ></SettingsToggle>
+        </View> */}
+        <Button title="Schedule Notification" onPress={scheduleNotification} />
+      </ScrollView>
   );
 }
 

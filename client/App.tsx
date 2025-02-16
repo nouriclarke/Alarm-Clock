@@ -7,6 +7,7 @@ import Settings from './screens/Settings';
 import AlarmFeatures from './screens/AlarmFeatures';
 import Alarms from './screens/Alarms';
 import { DarkModeProvider } from './contexts/DarkModeContext';
+import { setStatusBarBackgroundColor } from 'expo-status-bar';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,7 +16,13 @@ export default function App() {
   return (
     <DarkModeProvider>
       <NavigationContainer>
-        <Tab.Navigator initialRouteName="Home">
+        <Tab.Navigator 
+          initialRouteName="Home"
+          screenOptions={{
+            tabBarStyle: {
+              backgroundColor: '',
+            }
+          }}>
           <Tab.Screen
             name="Clock"
             component={Home}

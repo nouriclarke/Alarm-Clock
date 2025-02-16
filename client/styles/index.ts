@@ -109,30 +109,88 @@ const textStyles = StyleSheet.create({
 
 const settingStyles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: 'white',
-    padding: 20,
-    marginVertical: 10,
-    borderRadius: 10,
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-  },
-  content: {
-    flexDirection: 'column',
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
   },
   settingText: {
     fontSize: 20,
+    flex: 1, 
+    justifyContent: 'flex-start',
+    marginLeft: 0,
+    marginTop: 0,
+  },
+  toggleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 5,
+    //justifyContent: 'flex-start',
+  
+    
+    //justifyContent: 'flex-start',
+    // paddingHorizontal: 20,
+    // marginVertical: 10,
+    // borderRadius: 10,
+    // backgroundColor: 'white',
+    // shadowColor: '#000',
+    // shadowOffset: { width: 0, height: 2 },
+    // shadowOpacity: 0.1,
+    // shadowRadius: 4,
+    // elevation: 3,
+  },
+  sections: {
+    marginVertical: 6,
+    borderRadius: 10,
+    elevation: 1,
+    padding: 2,
+    backgroundColor: 'white',
+
+  },
+  separate: {
     flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 3,
+    borderBottomWidth: 0.5,
+    borderBottomColor: 'darkgrey',
+    marginLeft: 14,
+    marginRight: 0,
   },
-  controls: {
-    alignItems: 'flex-end',
+  icon: {
+    width: 32,
+    height: 32,
+    borderRadius: 7,
   },
-  toggle: {},
+  // container: {
+  //   flexDirection: 'row',
+  //   justifyContent: 'space-between',
+  //   alignItems: 'center',
+  //   backgroundColor: 'white',
+  //   padding: 20,
+  //   marginVertical: 10,
+  //   borderRadius: 8 ,
+  //   elevation: 3,
+  //   shadowColor: '#000',
+  //   shadowOffset: { width: 0, height: 2 },
+  //   shadowOpacity: 0.25,
+  //   shadowRadius: 3.84,
+  //   height: 50,
+  // },
+  // content: {
+  //   flexDirection: 'column',
+  // },
+  // settingText: {
+  //   fontSize: 20,
+  //   flex: 1,
+  // },
+  // controls: {
+  //   alignItems: 'flex-end',
+  // },
+  // toggle: {},
+  // icons:{
+    
+  // }
 });
 
 export { styles, textStyles, settingStyles };
